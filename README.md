@@ -1,2 +1,2 @@
-# [SP24] Trends for Web Development 
-Monorepo for SP24
+# [FA24] Trends for Web Development 
+Monorepo for FA24
