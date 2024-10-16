@@ -41,7 +41,7 @@ const filterHighQualityArticles = (articles: Article[]): string[] => {
 // Exercise 4: Assess Financial Standing (10 points)
 /**
  * Input: an object representing an individual's financial details including name, monthlyIncome, and expenses.
- * Output: 'wealthy' if net income is above 5000, 'stable' if between 2000 and 5000, and 'struggling' otherwise.
+ * Output: 'wealthy' if net income is above 5000, 'stable' if between 2000 (inclusive) and 5000 (exclusive), and 'struggling' otherwise.
  */
 type FinancialDetails = { name: string; monthlyIncome: number; expenses: number };
 const assessFinancialStanding = (details: FinancialDetails): string => {
