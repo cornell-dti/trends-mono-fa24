@@ -16,12 +16,14 @@ const IdentityPicker = () => {
   const [myUser, setMyUser] = useState<UserData | null>(null);
   const [fetchedUser, setFetchedUser] = useState<UserData | null>(null);
 
-  // Call this function to fetch data
+  // TODO: call this function to fetch data
   // const fetchRandomUser = () =>
-  //   //NOTE: Each time we call this API, we get different random user data
-  //   //API: "https://randomuser.me/api"
+  //   // NOTE: Each time we call this API, we get different random user data
+  //   // API: "https://randomuser.me/api"
+  // TODO: fake timeout (final, 1 sec)
+  // TODO: final error catching
 
-  // At page load, fetch users and set state once the data arrives
+  // TODO: at page load, fetch users and set state once the data arrives
 
   const summarizeUser = (user: UserData | null) => {
     if (!user) return "Hello!";
@@ -41,6 +43,7 @@ const IdentityPicker = () => {
           <UserDisplay header="Me" user={myUser} />
         </Grid.Column>
         <Grid.Column>
+          {/* TODO: handle click */}
           <Button color="green" attached="top" onClick={() => "TODO"}>
             Refresh
           </Button>
