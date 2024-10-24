@@ -16,14 +16,27 @@ const IdentityPicker = () => {
   const [myUser, setMyUser] = useState<UserData | null>(null);
   const [fetchedUser, setFetchedUser] = useState<UserData | null>(null);
 
-  // TODO: call this function to fetch data
-  // const fetchRandomUser = () =>
-  //   // NOTE: Each time we call this API, we get different random user data
-  //   // API: "https://randomuser.me/api"
-  // TODO: fake timeout (final, 1 sec)
-  // TODO: final error catching
+  // Call this function to fetch data
+  const fetchRandomUser = () =>
+    fetch("https://randomuser.me/api")
+      .then((response) => response.json())
+      .then((data: RandomUserAPIResponse) => {
+        setTimeout(() => {
+          setFetchedUser(data.results[0]);
+        }, 1000);
+      });
 
-  // TODO: at page load, fetch users and set state once the data arrives
+  // At page load, fetch users and set state once the data arrives
+  useEffect(() => {
+    fetchRandomUser();
+  }, []);
+
+  // Initialize myUser when fetchedUser is first set
+  useEffect(() => {
+    if (fetchedUser && !myUser) {
+      setMyUser(fetchedUser);
+    }
+  }, [fetchedUser, myUser]);
 
   const summarizeUser = (user: UserData | null) => {
     if (!user) return "Hello!";
@@ -43,8 +56,7 @@ const IdentityPicker = () => {
           <UserDisplay header="Me" user={myUser} />
         </Grid.Column>
         <Grid.Column>
-          {/* TODO: handle click */}
-          <Button color="green" attached="top" onClick={() => "TODO"}>
+          <Button color="green" attached="top" onClick={fetchRandomUser}>
             Refresh
           </Button>
           <Header as="h2" attached content="Control Panel" />
