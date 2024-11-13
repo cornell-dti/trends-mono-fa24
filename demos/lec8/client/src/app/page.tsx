@@ -10,16 +10,19 @@ export default function Home() {
   console.log(user);
 
   return (
-    <div>
+    <div className="flex flex-row w-full justify-center p-4">
       {user ? (
-        <div>
-          <h1>Logged in as {user.email}</h1>
+        <div className="flex flex-col items-center">
           <Button onClick={() => signOut()}>Sign out</Button>
         </div>
       ) : (
-        <div>
-          <h1>Not logged in</h1>
-          <Button onClick={() => signIn()}>Sign in</Button>
+        <div className="flex flex-col items-center">
+          <Button className="w-fit" onClick={() => signIn()}>
+            <div className="flex flex-row p-1 space-x-2">
+              <Image src="/google.webp" alt="Google" width={20} height={20} />
+              <p>Sign in with Google</p>
+            </div>
+          </Button>
         </div>
       )}
     </div>

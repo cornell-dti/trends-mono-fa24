@@ -32,6 +32,7 @@ app.get("/api/person/:netid", async (req, res) => {
     } else {
       res.status(200).send({
         message: `SUCCESS retrieved person with netid: ${netid} from the people collection in Firestore`,
+        data: person,
       });
     }
   } catch (err) {
